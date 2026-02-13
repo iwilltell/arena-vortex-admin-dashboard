@@ -1,0 +1,273 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  transition: background 0.4s ease, color 0.4s ease;
+  overflow-x: hidden;
+}
+
+/* ================= THEME ================= */
+.app.dark {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: white;
+}
+
+.app.light {
+  background: #f1f5f9;
+  color: #111;
+}
+
+/* ================= FLOATING BACKGROUND ================= */
+.background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+
+.background span {
+  position: absolute;
+  display: block;
+  width: 25px;
+  height: 25px;
+  background: rgba(255,255,255,0.08);
+  animation: float 25s linear infinite;
+  bottom: -150px;
+  border-radius: 50%;
+}
+
+.background span:nth-child(1){ left:10%; animation-duration:20s; }
+.background span:nth-child(2){ left:30%; animation-duration:28s; }
+.background span:nth-child(3){ left:50%; animation-duration:22s; }
+.background span:nth-child(4){ left:70%; animation-duration:26s; }
+.background span:nth-child(5){ left:90%; animation-duration:30s; }
+
+@keyframes float {
+  0% { transform: translateY(0) rotate(0deg); opacity:0.2; }
+  50% { opacity:0.5; }
+  100% { transform: translateY(-1000px) rotate(720deg); opacity:0; }
+}
+
+/* ================= LAYOUT ================= */
+.layout {
+  display: flex;
+}
+
+.sidebar {
+  width: 220px;
+  min-height: 100vh;
+  padding: 30px 20px;
+  backdrop-filter: blur(15px);
+  background: rgba(0,0,0,0.3);
+  border-right: 1px solid rgba(255,255,255,0.1);
+  transition: background 0.4s ease;
+}
+
+.app.light .sidebar {
+  background: rgba(255,255,255,0.8);
+}
+
+.sidebar h2 {
+  margin-bottom: 30px;
+}
+
+.sidebar button {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  transition: 0.3s;
+}
+
+.sidebar button:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.main {
+  flex: 1;
+  padding: 50px;
+}
+
+/* ================= GLASS EFFECT ================= */
+.glass {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 25px;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  transition: 0.3s ease;
+}
+
+.app.light .glass {
+  background: rgba(255,255,255,0.7);
+  color: #111;
+}
+
+/* ================= TITLE ================= */
+.title {
+  font-size: 38px;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+}
+
+/* ================= CARDS ================= */
+.cards {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 50px;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card h2 {
+  font-size: 14px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.card p {
+  font-size: 28px;
+  font-weight: bold;
+  color: #38bdf8;
+}
+
+/* ================= FORM ================= */
+.form-row {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  transition: 0.3s;
+}
+
+.app.light input {
+  background: rgba(0,0,0,0.05);
+  color: #111;
+}
+
+input::placeholder {
+  color: #ddd;
+}
+
+/* ================= BUTTONS ================= */
+button {
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-primary {
+  background: #3b82f6;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #2563eb;
+}
+
+.btn-warning {
+  background: #f59e0b;
+  color: white;
+}
+
+.btn-warning:hover {
+  background: #d97706;
+}
+
+.btn-danger {
+  background: #ef4444;
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #dc2626;
+}
+
+/* ================= TABLE ================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 15px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  text-align: left;
+}
+
+tr:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.app.light tr:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+/* ================= NOTIFICATION ================= */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #38bdf8;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  font-weight: bold;
+  z-index: 1000;
+}
+
+/* ================= LOGIN ================= */
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* ================= FADE ANIMATION ================= */
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
